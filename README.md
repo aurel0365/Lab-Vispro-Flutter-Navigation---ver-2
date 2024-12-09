@@ -33,19 +33,22 @@ Layar ini menampilkan informasi pribadi pengguna, termasuk nama, deskripsi latar
 - **Penyusunan Layout Responsif**: Layout menggunakan `Row` dan `Expanded` untuk menata konten secara responsif, dan gambar profil menyesuaikan ukuran menggunakan `BoxFit.cover`.
 
 ### Layar **Third_Screen** 🏃‍♂️
-Layar ini memungkinkan pengguna untuk menghasilkan dan melihat daftar aktivitas berdasarkan input jumlah layar yang diminta. Pengguna dapat menavigasi antar layar aktivitas menggunakan tombol **Next** atau gerakan geser.
+Layar ini memungkinkan pengguna untuk menghasilkan dan melihat daftar layar aktivitas berdasarkan jumlah yang diinputkan. Pengguna dapat menavigasi layar dengan tombol Next, Previous, atau melalui gerakan geser horizontal.
 #### Fitur:
-- Pengguna dapat memasukkan jumlah layar yang ingin dihasilkan melalui **TextField** dan menekan tombol "Generate Screens". ✍️
-- Daftar aktivitas ditampilkan menggunakan **ListView.builder**, termasuk gambar, judul, dan deskripsi setiap aktivitas. 📚
-- Navigasi antar layar aktivitas menggunakan gesekan horizontal atau tombol **Next**. ⬅️➡️
-- Validasi input pengguna dengan menampilkan **Snackbar** jika nilai yang dimasukkan tidak valid. ⚠️
-- Layar detail aktivitas menampilkan gambar, judul, deskripsi, dan tombol **Next** untuk melanjutkan ke aktivitas berikutnya.
-
-#### Pendekatan yang digunakan:
-- **Stateful Widget**: `ThirdScreen` adalah widget bertipe `Stateful` untuk manajemen status, menyimpan daftar aktivitas yang dihasilkan dan memperbarui UI saat data berubah.
-- **Pengelolaan Input Pengguna**: Input jumlah layar diterima melalui **TextField**. Setelah tombol "Generate Screens" ditekan, `setState` digunakan untuk memperbarui daftar aktivitas yang ditampilkan.
-- **Navigasi Layar Aktivitas**: Menggunakan `Navigator.push` dan `PageRouteBuilder` untuk mengarahkan pengguna ke layar detail aktivitas dengan animasi geser ke kiri. Fitur geser horizontal juga diterapkan di layar detail aktivitas untuk navigasi ke aktivitas berikutnya.
-- **Desain Responsif**: Layout menggunakan `Column` dan `ListView.builder` untuk mendukung tampilan dinamis yang menyesuaikan ukuran konten dan perangkat.
+- Input Jumlah Layar: Pengguna dapat memasukkan jumlah layar yang ingin dihasilkan melalui TextField. Setelah menekan tombol Enter, layar akan di-generate secara dinamis. ✍️
+- Daftar Aktivitas: Setiap layar aktivitas menampilkan judul dan deskripsi yang dibuat secara dinamis. 💬
+- Navigasi Antar Layar: Pengguna dapat berpindah antar layar menggunakan tombol Next, Previous, atau gerakan geser horizontal. ⬅️➡️
+- Validasi Input: Input pengguna divalidasi. Jika nilai tidak valid, layar tidak dihasilkan. ⚠️
+- Tampilan Dinamis: Menggunakan Hero Animation untuk memberikan transisi visual yang menarik antar layar. 🌟
+- Navigasi Kembali: Ikon panah kembali di AppBar mengarahkan pengguna kembali ke layar pertama.
+Pendekatan yang Digunakan:
+- Stateful Widget: ThirdScreen menggunakan StatefulWidget untuk memantau status input dan daftar layar aktivitas yang dihasilkan.
+- Pengelolaan Input: Input dari pengguna diproses menggunakan TextEditingController. Validasi diterapkan untuk memastikan angka valid.
+- Navigasi Antar Layar: Menggunakan Navigator.push untuk berpindah antar layar, dan GestureDetector untuk mendukung navigasi melalui gesekan.
+- Desain Responsif: Memanfaatkan Column, ListView.builder, dan Container agar layar terlihat optimal di berbagai ukuran perangkat.
+#### Komponen Utama:
+- ThirdScreen: Layar utama tempat input jumlah layar dilakukan.
+- GeneratedScreen: Layar aktivitas dinamis dengan navigasi horizontal.
 
 ---
 
